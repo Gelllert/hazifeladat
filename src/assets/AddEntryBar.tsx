@@ -10,6 +10,11 @@ const getRandomColor = () => {
     return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0') + 'ff';
 };
 
+/**
+ * A bejegyzés hozzáadására szolgáló felső sáv komponense.
+ * Lehetővé teszi új elemek felvételét a kerékre, név és szín megadásával.
+ * @returns {JSX.Element} A UI elem erre.
+ */
 export function AddEntryBar() {
     let [entryName, setName] = useState("");
     let [entryWeight, setWeight] = useState(1);
