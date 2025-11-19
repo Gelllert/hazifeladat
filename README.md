@@ -10,3 +10,5 @@ Egy szerencse kereket megvalósító alkalmazás kisorsol egy általunk megadott
 - Jobboldali felugró panel, ami egy napló az eddigi forgatások eredményéről. Napló bejegyzéseik tartalmazzák a kerék kicsinyített verzióját (hogy mutassa milyen esélyek voltak, szín kódolva) és az elemeket (színük a keréken lévő, hozzájuk tartozó cikkelyek színe), a győztes neve valamilyen módon jelölve. Ezeket az adatokat tárolja és megjegyezi.
 
 - A két panel lecsukható ha nincs elég hely (mint a laboron) és így csak a harmadik, középső rész látható, ahol a kerék és hozzá tartozó beállítások gombjai vannak megjelenítve (azaz a fő panel). A kerék fölött egy szerkeszthető címet adhatunk meg, alatta pedig a pörgető gomb nyomásával elindíthatjuk.
+
+https://gelllert.github.io/luckywheel/dist/
