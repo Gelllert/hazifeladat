@@ -1,0 +1,159 @@
+import { useState, useEffect } from "react";
+import { wheelService } from "../services/WheelServices";
+import { ButtonIcon } from "./ButtonIcon";
+import "../style/AddEntryBar.css";
+
+const MAX_WHEEL_ENTRIES = 10;
+const MAX_ENTRY_NAME_LENGTH = 25;
+
+const getRandomColor = () => {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0') + 'ff';
+};
+
+export function AddEntryBar() {
+    let [entryName, setName] = useState("");
+    let [entryWeight, setWeight] = useState(1);
+    let [entryColor, setColor] = useState("#ff0000ff");
+    let [isRandomColorActive, setIsRandomColorActive] = useState(false);
+    let [nameError, setNameError] = useState(false);
+    let [weightError, setWeightError] = useState(false);
+    let [colorError, setColorError] = useState(false);
+    let [currentEntries, setCurrentEntries] = useState(wheelService.getEntries());
+
+    useEffect(() => {
+        const handleEntriesChange = () => {
+            setCurrentEntries(wheelService.getEntries());
+        };
+
+        wheelService.addListener(handleEntriesChange);
+
+        return () => wheelService.removeListener(handleEntriesChange);
+    }, []);
+
+
+    const onAddEntryClick = () => {
+        if (!validate()) return;
+
+        let finalColor = entryColor;
+        if (isRandomColorActive) {
+            finalColor = getRandomColor();
+            setColor(finalColor);
+        }
+
+        wheelService.addEntry(entryName, entryWeight, finalColor);
+
+        setName("");
+        setWeight(1);
+
+
+        if (!isRandomColorActive) {
+            setColor("#ff0000ff");
+        }
+    }
+
+    function validate(): boolean {
+        let entries = wheelService.getEntries();
+        let valid = true;
+
+        const nameIsTooLong = entryName.length > MAX_ENTRY_NAME_LENGTH;
+
+        if (nameIsTooLong || !entryName.trim() || entries.some(e => e.name.toLowerCase() === entryName.toLowerCase())) {
+            setNameError(true);
+            valid = false;
+        } else {
+            setNameError(false);
+        }
+
+        if (entryWeight <= 0) {
+            setWeightError(true);
+            valid = false;
+        } else {
+            setWeightError(false);
+        }
+
+        if (!isRandomColorActive && entries.some(e => e.color?.toLowerCase() === entryColor.toLowerCase())) {
+            setColorError(true);
+            valid = false;
+        } else {
+            setColorError(false);
+        }
+
+        return valid;
+    }
+
+    const showAddButton = currentEntries.length < MAX_WHEEL_ENTRIES;
+
+    return (
+        <div class="AddEntryBar">
+
+            <input
+                type="text"
+                placeholder="Name"
+                value={entryName}
+                onInput={(e) => {
+                    setName(e.currentTarget.value);
+                    setNameError(false);
+                }}
+                className={nameError ? "error" : ""}
+            />
+            {nameError && entryName.length > MAX_ENTRY_NAME_LENGTH && (
+                <span className="NameLimitWarning">Max {MAX_ENTRY_NAME_LENGTH} karakter!</span>
+            )}
+
+            <div class="WeightGroup">
+                <span class="WeightLabel">Súly: </span>
+                <input
+                    type="number"
+                    min={1}
+                    value={entryWeight}
+                    onInput={(e) => {
+                        setWeight(parseInt(e.currentTarget.value) || 1);
+                        setWeightError(false);
+                    }}
+                    className={weightError ? "error" : ""}
+                />
+            </div>
+
+            <div className="ColorGroup">
+                <input
+                    type="color"
+                    disabled={isRandomColorActive}
+                    value={entryColor.substring(0, 7)}
+                    onInput={(e) => {
+                        if (!isRandomColorActive) {
+                            setColor(e.currentTarget.value + 'ff');
+                            setColorError(false);
+                        }
+                    }}
+                    className={`ColorPicker ${colorError ? "error" : ""}`}
+                />
+
+                <div className="RandomColorCheckbox">
+                    <input
+                        type="checkbox"
+                        id="random-color-check"
+                        checked={isRandomColorActive}
+                        onChange={(e) => {
+                            const newRandomState = e.currentTarget.checked;
+                            setIsRandomColorActive(newRandomState);
+                            setColorError(false);
+
+                            if (newRandomState) {
+                                setColor(getRandomColor());
+                            } else {
+                                setColor("#ff0000ff");
+                            }
+                        }}
+                    />
+                    <label htmlFor="random-color-check" title="Véletlenszerű szín generálása"></label>
+                </div>
+            </div>
+
+            {showAddButton ? (
+                <ButtonIcon icon="add" label="Add" onClick={onAddEntryClick} />
+            ) : (
+                <span className="EntryLimitReached">MAX ({MAX_WHEEL_ENTRIES})</span>
+            )}
+        </div>
+    );
+}

@@ -1,0 +1,7 @@
+.EntryList {
+    display: flex;
+    flex-direction: column;
+    margin-top: 12px;
+    padding: 8px;
+    border: white 1px solid;
+}

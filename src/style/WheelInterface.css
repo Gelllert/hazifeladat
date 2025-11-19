@@ -1,0 +1,79 @@
+.WheelInterface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+    font-family: sans-serif;
+    color: white;
+}
+
+.WheelControls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+
+    position: relative;
+    z-index: 100;
+
+    min-width: 200px;
+}
+
+.elim-toggle {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    user-select: none;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.elim-toggle:hover {
+    opacity: 1;
+}
+
+.elim-toggle input {
+    cursor: pointer;
+    width: 16px;
+    height: 16px;
+}
+
+button.ButtonIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: #444;
+    color: white;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 12px 24px;
+
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+button.ButtonIcon:hover {
+    background-color: #666;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+}
+
+button.ButtonIcon:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.material-icons {
+    font-size: 1.2em;
+}
