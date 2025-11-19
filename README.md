@@ -1,15 +1,12 @@
-# `create-preact`
+# Istók Gellért
 
-<h2 align="center">
-  <img height="256" width="256" src="./src/assets/preact.svg">
-</h2>
 
-<h3 align="center">Get started using Preact and Vite!</h3>
+`LUCKYWHEEL` – Házifeladat
 
-## Getting Started
+Egy szerencse kereket megvalósító alkalmazás kisorsol egy általunk megadott elemlistából, a hozzájuk kiszabott eséllyel egy nyertest. Az alkalmazás három részre bomlik: 
 
--   `npm run dev` - Starts a dev server at http://localhost:5173/
+- Baloldali felugró panel, ami a listázott elemeket tartalmazza. Itt lehet felvenni, törölni elemeket és kiszabni a hozzájuk tartozó esélyeket.
 
--   `npm run build` - Builds for production, emitting to `dist/`
+- Jobboldali felugró panel, ami egy napló az eddigi forgatások eredményéről. Napló bejegyzéseik tartalmazzák a kerék kicsinyített verzióját (hogy mutassa milyen esélyek voltak, szín kódolva) és az elemeket (színük a keréken lévő, hozzájuk tartozó cikkelyek színe), a győztes neve valamilyen módon jelölve. Ezeket az adatokat tárolja és megjegyezi.
 
--   `npm run preview` - Starts a server at http://localhost:4173/ to test production build locally
+- A két panel lecsukható ha nincs elég hely (mint a laboron) és így csak a harmadik, középső rész látható, ahol a kerék és hozzá tartozó beállítások gombjai vannak megjelenítve (azaz a fő panel). A kerék fölött egy szerkeszthető címet adhatunk meg, alatta pedig a pörgető gomb nyomásával elindíthatjuk.
