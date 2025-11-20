@@ -1,4 +1,5 @@
 const cacheName = "v2";
+
 /**
  * Kezeli a fetch eseményeket, hogy a kért erőforrás benne van-e a gyorsítótárban, ha igen, vissza adja.
  * Ha nincs, lekéri a hálózatról, eltárolja a cache-ben, majd visszaadja.
@@ -16,3 +17,7 @@ async function impl(e) {
     }
 }
 self.addEventListener("fetch", e => e.respondWith(impl(e))); 
+
+self.addEventListener("install", () => {
+    self.skipWaiting();
+});
