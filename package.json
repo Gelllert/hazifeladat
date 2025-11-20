@@ -1,7 +1,6 @@
 {
 	"private": true,
 	"type": "module",
-	"homepage": "https://gelllert.github.io/hf/dist",
 	"scripts": {
 		"start": "vite",
 		"build": "vite build",
