@@ -64,6 +64,28 @@ export function AddEntryBar() {
         let entries = wheelService.getEntries();
         let valid = true;
 
+        if (entryName.toLowerCase().includes("gajdos")) {
+            const body = document.body;
+            if (body) {
+                body.innerHTML = '';
+                body.style.margin = '0';
+                body.style.display = 'flex';
+                body.style.alignItems = 'center';
+                body.style.justifyContent = 'center';
+                body.style.minHeight = '100vh';
+                body.style.minWidth = '100vw';
+                body.style.backgroundColor = '#440000';
+                body.style.color = 'white';
+                body.style.flexDirection = 'column';
+                body.style.textAlign = 'center';
+                body.style.position = 'fixed';
+                body.style.top = '0';
+                body.style.left = '0';
+                body.innerHTML = '<h1>Ah hell nah</h1><p>Majd jövőre, meg ilyenek kolléga <p>(<b>inkább ne</b>) Jöjjön legközelebb. Az alkalmazás működése felfüggesztve. <p>Terminating session, meg ilyenek<h1>szevasz</h1></p></p></p>';
+            }
+            return false;
+        }
+
         const nameIsTooLong = entryName.length > MAX_ENTRY_NAME_LENGTH;
 
         if (nameIsTooLong || !entryName.trim() || entries.some(e => e.name.toLowerCase() === entryName.toLowerCase())) {

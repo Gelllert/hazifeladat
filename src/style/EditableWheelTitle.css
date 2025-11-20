@@ -1,0 +1,23 @@
+.WheelTitleDisplay,
+.WheelTitleInput {
+
+    display: block; 
+    margin: 0 auto 10px auto; 
+    text-align: center;
+    
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    
+    z-index: 1; 
+}
+
+.WheelTitleInput {
+    text-align: center;
+    color: rgb(185, 185, 185);
+}

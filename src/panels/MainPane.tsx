@@ -1,3 +1,4 @@
+import { EditableWheelTitle } from "../assets/EditableWheelTitle";
 import { WheelInterface } from "../assets/WheelInterface";
 
 /**
@@ -9,7 +10,7 @@ export function MainPane() {
 
     return (
         <div>
-            <h3>LUCKY WHEEL</h3>
+            <h3><EditableWheelTitle/></h3>
             <WheelInterface />
         </div>
     );
