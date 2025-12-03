@@ -15,18 +15,19 @@
 
 .AddEntryBar input[type="text"] {
     padding: 6px 8px;
-    outline: var()
+    outline: var();
 }
 
 .WeightGroup {
     display: flex;
     align-items: center;
+    max-width: auto;
     gap: 6px;
 }
 
 .WeightGroup input[type="number"] {
-    width: 70px;
     padding: 6px 8px;
+    width: 40px;
 }
 
 .WeightLabel {
