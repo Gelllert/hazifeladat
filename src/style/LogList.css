@@ -13,6 +13,10 @@
     gap: 10px;
 }
 
+.LogList > * {
+    overflow: hidden;
+}
+
 .LogListItem {
     display: flex;
     gap: 15px;
@@ -24,7 +28,7 @@
 
     min-height: 60px;
     height: auto;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .LogDetails {
@@ -49,7 +53,7 @@
     font-size: 0.75rem;
     color: #ccc;
     height: auto;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .LogEntryTag {
@@ -84,6 +88,8 @@
 }
 
 .LogListEmpty {
+    min-width: 0;
+    max-width: 100%;
     color: #aaa;
     text-align: center;
     padding: 30px;

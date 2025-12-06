@@ -46,6 +46,9 @@ export function Main() {
               <ButtonIcon icon="bar_chart" label="Stats" onClick={() => setActivePane("right")} />
             </>
           )}
+          {(isL3 || isL2) && activePane !== "none" && (
+            <ButtonIcon icon="arrow_back" label="Back" onClick={back} />
+          )}
         </div>
       </div>
 
@@ -60,19 +63,19 @@ export function Main() {
           </>
         )}
 
-        {/* TABLET LAYOUT v1*/}
-        {isL2 && activePane === "none" && (
+        {/* TABLET LAYOUT left*/}
+        {isL2 && (activePane === "none" || activePane === "left") && (
           <>
             <LeftPane />
             <div className="MainContent"><MainPane /></div>
           </>
         )}
 
-        {/* TABLET LAYOUT v2*/}
+        {/* TABLET LAYOUT right*/}
         {isL2 && activePane === "right" && (
           <>
             <div className="MainContent"><MainPane /></div>
-            <RightPane onBack={back} />
+            <RightPane />
           </>
         )}
 
@@ -82,10 +85,10 @@ export function Main() {
         )}
 
         {/* PHONE LAYOUT left*/}
-        {isL3 && activePane === "left" && <LeftPane onBack={back} />}
+        {isL3 && activePane === "left" && <LeftPane/>}
 
         {/* PHONE LAYOUT right*/}
-        {isL3 && activePane === "right" && <RightPane onBack={back} />}
+        {isL3 && activePane === "right" && <RightPane/>}
       </div>
     </div>
   );

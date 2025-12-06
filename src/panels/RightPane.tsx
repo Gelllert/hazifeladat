@@ -9,14 +9,9 @@ import { LogList } from "../assets/LogList";
  * @param {() => void} [props.onBack] - Opcionális visszalépés eseménykezelő (mobil nézethez).
  * @returns {JSX.Element} A jobb oldali panel.
  */
-export function RightPane({ onBack }: { onBack?: () => void }) {
+export function RightPane() {
   return (
     <div className="RightPane pane">
-      {onBack && (
-        <div className="back-button-top">
-          <ButtonIcon icon="arrow_back" label="Back" onClick={onBack} />
-        </div>
-      )}
       <h3>Statistics</h3>
       <LogList />
     </div>

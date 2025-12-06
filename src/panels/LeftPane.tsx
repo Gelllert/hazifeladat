@@ -10,14 +10,9 @@ import { EntryList } from "../assets/EntryList";
  * @param {() => void} [props.onBack] - Opcionális visszalépés eseménykezelő (mobil nézethez).
  * @returns {JSX.Element} A bal oldali panel.
  */
-export function LeftPane({ onBack }: { onBack?: () => void }) {
+export function LeftPane() {
   return (
     <div className="LeftPane pane">
-      {onBack && (
-        <div className="back-button-top">
-          <ButtonIcon icon="arrow_back" label="Back" onClick={onBack} />
-        </div>
-      )}
       <h3>Wheel Entries</h3>
       <AddEntryBar />
       <EntryList />
