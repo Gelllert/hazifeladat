@@ -40,18 +40,16 @@ export function AddEntryBar() {
         if (!validate()) return;
 
         let finalColor = entryColor;
-        if (isRandomColorActive) {
-            finalColor = getRandomColor();
-            setColor(finalColor);
-        }
 
         wheelService.addEntry(entryName, entryWeight, finalColor);
 
         setName("");
         setWeight(1);
 
-
-        if (!isRandomColorActive) {
+        if (isRandomColorActive) {
+            const nextRandomColor = getRandomColor();
+            setColor(nextRandomColor);
+        } else {
             setColor("#ff0000ff");
         }
     }
@@ -184,9 +182,7 @@ export function AddEntryBar() {
 
                             if (newRandomState) {
                                 setColor(getRandomColor());
-                            } else {
-                                setColor("#ff0000ff");
-                            }
+                            } 
                         }}
                     />
                     <label htmlFor="random-color-check" title="Véletlenszerű szín generálása"></label>
