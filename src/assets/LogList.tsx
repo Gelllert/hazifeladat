@@ -35,7 +35,7 @@ export function LogList() {
     if (logs.length === 0) {
         return (
             <div class="LogListEmpty">
-                . . .
+                &lt; THERE ARE NO LOGS STORED &gt;
             </div>
         );
     }

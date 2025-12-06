@@ -11,6 +11,12 @@ type LogListItemProps = {
 
 const LOG_WHEEL_SIZE = 60;
 
+/**
+ * Egyetlen napló bejegyzés megjelenítéséért felelős komponens.
+ * Megjeleníti a pörgetéshez tartozó kereket, a nyertes bejegyzést és az összes résztvevő bejegyzést.
+ * @param {LogListItemProps} props - A komponens tulajdonságai.
+ * @returns {JSX.Element} A napló bejegyzés megjelenítő eleme.
+ */
 export function LogListItem({ log }: LogListItemProps) {
     const winnerName = log.winnerName;
     const winnerIconName = log.eliminated ? 'skull' : 'trophy';

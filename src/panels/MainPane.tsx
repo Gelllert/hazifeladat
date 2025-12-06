@@ -9,7 +9,7 @@ import { WheelInterface } from "../assets/WheelInterface";
 export function MainPane() {
 
     return (
-        <div>
+        <div className="MainContent pane">
             <h3><EditableWheelTitle/></h3>
             <WheelInterface />
         </div>
