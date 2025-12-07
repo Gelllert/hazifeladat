@@ -6,7 +6,7 @@ class Pwa {
     constructor() {
         if (isSecureContext) {
             (async () => {
-                this.#serviceWorkerRegistration = await navigator.serviceWorker.register("sw.js", {updateViaCache: 'none'});
+                this.#serviceWorkerRegistration = await navigator.serviceWorker.register("sw.js");
             })();
         }
     }
