@@ -25,7 +25,7 @@ export function EntryListItem({ entry, percent, weight, onDelete }) {
 
 
             <div class="EntryButtons">
-                <ButtonIcon icon="delete" onClick={onDelete} />
+                <ButtonIcon icon="delete" onClick={onDelete} variant="delete"/>
             </div>
 
         </div>

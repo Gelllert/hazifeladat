@@ -41,18 +41,3 @@
     width: 16px;
     height: 16px;
 }
-
-button.ButtonIcon:hover {
-    background-color: #666;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
-}
-
-button.ButtonIcon:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.material-icons {
-    font-size: 1.2em;
-}

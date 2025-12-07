@@ -37,13 +37,3 @@
     display: flex;
     gap: 6px;
 }
-
-.ButtonIcon {
-    border: 1px solid white !important;
-    border-radius: 4px;
-    padding: 4px 6px;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

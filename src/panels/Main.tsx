@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from "preact/hooks";
 import { LeftPane } from "./LeftPane";
 import { RightPane } from "./RightPane";
 import { MainPane } from "./MainPane";
@@ -33,26 +33,30 @@ export function Main() {
   return (
     <div className="MainLayout">
 
-      {/* ---------------- HEADER ---------------- */}
+      {/* -------------------------------------- HEADER -------------------------------------- */}
       <div className="Header">
         <div className="TopButtons">
           {isL2 && activePane === "none" && (
-            <ButtonIcon icon="bar_chart" label="Stats" onClick={() => setActivePane("right")} />
+            <ButtonIcon icon="bar_chart" label="Stats" onClick={() => setActivePane("right")} variant="nav"/>
           )}
 
           {isL3 && activePane === "none" && (
             <>
-              <ButtonIcon icon="inventory" label="Items" onClick={() => setActivePane("left")} />
-              <ButtonIcon icon="bar_chart" label="Stats" onClick={() => setActivePane("right")} />
+              <ButtonIcon icon="inventory" label="Items" onClick={() => setActivePane("left")} variant="nav"/>
+              <ButtonIcon icon="bar_chart" label="Stats" onClick={() => setActivePane("right")} variant="nav"/>
             </>
           )}
-          {(isL3 || isL2) && activePane !== "none" && (
-            <ButtonIcon icon="arrow_back" label="Back" onClick={back} />
+          {isL3  && activePane !== "none" && (
+            <ButtonIcon icon="arrow_back" label="Back" onClick={back} variant="nav"/>
           )}
+          {isL2  && activePane === "right" && (
+            <ButtonIcon icon="arrow_back" label="Back" onClick={back} variant="nav"/>
+          )}
+
         </div>
       </div>
 
-      {/* ------------------- CONTENT ------------------- */}
+      {/* ------------------------- CONTENT ------------------------- */}
       <div className="ContentArea">
         {/* DESKTOP LAYOUT */}
         {isL1 && (

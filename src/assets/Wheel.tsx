@@ -4,7 +4,6 @@ import { WheelEntry } from "../services/WheelServices";
 
 /**
  * A kerék megjelenítéséhez szükséges tulajdonságok.
- * @typedef {object} WheelProps
  * @property {number} rotationDeg - A kerék aktuális elforgatása fokban.
  * @property {Entry[]} entries - A keréken lévő bejegyzések listája.
  */
@@ -16,7 +15,7 @@ type WheelProps = {
 /**
  * A vizuális szerencsekerék komponens.
  * Canvas segítségével rajzolja ki a cikkelyeket, a színeket és a feliratokat.
- * Két fázisban rajzol (Pass 1: háttér, Pass 2: szöveg) a megfelelő rétegrend érdekében.
+ * Két fázisban rajzol "Cikkelyek kitöltése (Pass 1), majd szöveg (Pass 2)" a megfelelő rétegrend érdekében.
  * @param {WheelProps} props - A kerékhez szükséges adatok.
  * @returns {JSX.Element} A kerék konténer és a canvas.
  */
@@ -43,6 +42,7 @@ export function Wheel({ rotationDeg, entries }: WheelProps) {
 
     let startAngle = -Math.PI / 2;
 
+    //pass1: cikkelyek rajzolása
     entries
       .sort((a, b) => a.entryNumber - b.entryNumber)
       .forEach((entry) => {
@@ -68,6 +68,7 @@ export function Wheel({ rotationDeg, entries }: WheelProps) {
 
     startAngle = -Math.PI / 2;
 
+    //pass2: feliratok rajzolása
     entries
       .sort((a, b) => a.entryNumber - b.entryNumber)
       .forEach((entry) => {

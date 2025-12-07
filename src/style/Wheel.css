@@ -55,9 +55,9 @@ canvas {
     z-index: 50;
     width: 30px !important;
     height: 30px !important;
-    background: white;
+    background: white !important;;
     border-radius: 50%;
-    border: 8px solid red;
+    border: 8px solid red !important;;
 
     display: flex;
     align-items: center;

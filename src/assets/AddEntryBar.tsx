@@ -18,7 +18,7 @@ const getRandomColor = () => {
 export function AddEntryBar() {
     let [entryName, setName] = useState("");
     let [entryWeight, setWeight] = useState(1);
-    let [entryColor, setColor] = useState("#ff0000ff");
+    let [entryColor, setColor] = useState("#ffffffff");
     let [isRandomColorActive, setIsRandomColorActive] = useState(false);
     let [nameError, setNameError] = useState(false);
     let [weightError, setWeightError] = useState(false);
@@ -50,7 +50,7 @@ export function AddEntryBar() {
             const nextRandomColor = getRandomColor();
             setColor(nextRandomColor);
         } else {
-            setColor("#ff0000ff");
+            setColor("#ffffffff");
         }
     }
 
@@ -188,9 +188,8 @@ export function AddEntryBar() {
                     <label htmlFor="random-color-check" title="Véletlenszerű szín generálása"></label>
                 </div>
             </div>
-
             {showAddButton ? (
-                <ButtonIcon icon="add" label="Add" onClick={onAddEntryClick} />
+                <ButtonIcon icon="add" label="Add" onClick={onAddEntryClick} variant="add" />
             ) : (
                 <span className="EntryLimitReached">MAX ({MAX_WHEEL_ENTRIES})</span>
             )}
