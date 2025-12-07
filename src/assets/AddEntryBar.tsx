@@ -154,7 +154,7 @@ export function AddEntryBar() {
                     }}
                     className={weightError ? "error" : ""}
                 />
-                <span class="Explanation">( % = (SUM(w) / input) * 0.01 )</span>
+                <span class="Explanation">( win% = ( weight / SUM(w)) * 100)</span>
             </div>
             <div className="ColorGroup">
                 <input
