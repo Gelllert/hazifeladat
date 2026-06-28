@@ -1,0 +1,17 @@
+{
+    "name": "Szerencsekerék",
+    "short_name": "Wheel",
+    "icons": [
+        {
+            "src": "logo.png", 
+            "sizes": "225x225",
+            "type": "image/png"
+        }
+    ],
+    "start_url": "./?mode=pwa",
+    "display": "standalone",
+    "screenshots":[
+        {"src": "desktop.png", "sizes":"1655x898", "type":"image/png", "form_factor":"wide", "label":"LuckyWheel Screen"},
+        {"src": "mobile.png", "sizes":"633x880", "type":"image/png", "form_factor":"narrow", "label":"LuckyWheel View"}
+    ]
+}
